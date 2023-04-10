@@ -1,0 +1,160 @@
+generator client {
+   provider = "prisma-client-js"
+}
+
+generator erd {
+   provider                  = "prisma-erd-generator"
+   output                    = "./der.svg"
+   theme                     = "forest"
+   includeRelationFromFields = true
+}
+
+datasource db {
+   provider = "postgresql"
+   url      = env("DATABASE_URL")
+   // shadowDatabaseUrl = env("SHADOW_DATABASE_URL")
+}
+
+// datasource db {
+//   provider = "sqlite"
+//   url      = "file:./dev.db"
+// }
+
+model Contracts {
+   id        Int         @id @default(autoincrement())
+   locations Locations[]
+   name      String
+}
+
+model Locations {
+   id                Int               @id @default(autoincrement())
+   name              String
+   latitude          Decimal
+   longitude         Decimal
+   contractId        Int
+   contract          Contracts         @relation(fields: [contractId], references: [id])
+   pickAppUnits      PickAppUnits[]
+   locationConfigsId Int
+   locationConfigs   LocationConfigs   @relation(fields: [locationConfigsId], references: [id])
+   functionalUnits   FunctionalUnits[]
+   locationType      LocationType
+}
+
+model LocationConfigs {
+   id         Int         @id @default(autoincrement())
+   name       String
+   locationId Int
+   Locations  Locations[]
+}
+
+enum LocationType {
+   NEIGHBORHOOD
+   BUILDING
+   UNIVERSITY
+}
+
+model FunctionalUnits {
+   id           Int            @id @default(autoincrement())
+   ciu          String
+   access_code  String
+   locationId   Int
+   location     Locations      @relation(fields: [locationId], references: [id])
+   owners       Owners[]
+   Transactions Transactions[]
+
+   @@unique([ciu, access_code])
+}
+
+model Owners {
+   id               Int             @id @default(autoincrement())
+   name             String
+   email            String
+   phone            String
+   functionalUnitId Int
+   functionalUnit   FunctionalUnits @relation(fields: [functionalUnitId], references: [id])
+}
+
+model PickAppUnits {
+   id         Int       @id @default(autoincrement())
+   modules    Modules[]
+   locationId Int
+   location   Locations @relation(fields: [locationId], references: [id])
+}
+
+enum ModuleTypes {
+   MASTER
+   SLAVE
+}
+
+enum LockerStatuses {
+   AVAILABLE
+   OCCUPIED
+}
+
+enum LockerHealtStatus {
+   OK
+   WARNING
+   ERROR
+}
+
+enum LockerSize {
+   SMALL
+   MEDIUM
+   LARGE
+}
+
+model Modules {
+   id        Int          @id @default(autoincrement())
+   pickAppId Int
+   pickApp   PickAppUnits @relation(fields: [pickAppId], references: [id])
+   type      ModuleTypes
+   lockers   Lockers[]
+}
+
+model LockerTypes {
+   id      Int        @id @default(autoincrement())
+   height  Float
+   width   Float
+   depth   Float
+   size    LockerSize
+   lockers Lockers[]
+}
+
+model Lockers {
+   id           Int               @id @default(autoincrement())
+   status       LockerStatuses
+   healthStatus LockerHealtStatus
+   moduleId     Int
+   module       Modules           @relation(fields: [moduleId], references: [id])
+   lockerTypeId Int
+   lockerType   LockerTypes       @relation(fields: [lockerTypeId], references: [id])
+   Transactions Transactions[]
+}
+
+enum TransactionTypes {
+   DEPOSIT
+   WITHDRAWAL
+   SERVICE
+}
+
+model Transactions {
+   id               String           @id @default(uuid())
+   date             DateTime         @default(now())
+   lockerId         Int
+   locker           Lockers          @relation(fields: [lockerId], references: [id])
+   functionalUnitId Int
+   functionalUnit   FunctionalUnits  @relation(fields: [functionalUnitId], references: [id])
+   type             TransactionTypes
+   deliveryInfoId   String           @unique
+   deliveryInfo     DeliveryInfo     @relation(fields: [deliveryInfoId], references: [id])
+}
+
+model DeliveryInfo {
+   id           String        @id @default(uuid())
+   name         String
+   lastName     String
+   gender       String
+   birthDate    DateTime
+   dni          String
+   transactions Transactions?
+}
