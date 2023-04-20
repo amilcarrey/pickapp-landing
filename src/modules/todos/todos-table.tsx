@@ -7,7 +7,7 @@ import { Button } from '@/ui/button'
 import { Table } from '@/ui/tan-stack-table'
 import { ToastAction } from '@/ui/toasts/toast'
 import { type ColumnDef } from '@tanstack/react-table'
-import { Cross, Edit2, FileWarning, Trash2 } from 'lucide-react'
+import { Edit2, Trash2 } from 'lucide-react'
 import { useCallback, useMemo } from 'react'
 
 export function TodoTable({ data }: { data: Todo[] }) {
