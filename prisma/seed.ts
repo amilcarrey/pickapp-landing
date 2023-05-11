@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
-import { LocationType, Prisma } from '@prisma/client'
+import type { Prisma } from '@prisma/client';
+import { LocationType } from '@prisma/client'
 import { prisma } from '@/utils/db'
 
 const contractData: Prisma.ContractsCreateInput = {
