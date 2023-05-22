@@ -1,10 +1,11 @@
-import './globals.css'
-import { Maven_Pro } from 'next/font/google'
-import { Toaster } from '@/ui/toasts/toaster'
+import { Footer } from '@/components/Footer'
 import { cn } from '@/lib/utils'
 import { SiteHeader } from '@/modules/navigation/site-header'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import Providers from './providers'
 
-const font = Maven_Pro({ subsets: ['latin'], variable: '--font' })
+const font = Inter({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata = {
   title: 'Create Next App',
@@ -20,9 +21,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn('font-sans antialiased', font.variable)}>
       <body className="min-h-screen dark:bg-slate-900 dark:text-slate-100">
-        <SiteHeader />
-        {children}
-        <Toaster />
+        <Providers>
+          <SiteHeader />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   )

@@ -8,6 +8,7 @@
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended"
   ],
+  "extraFileExtensions": [".js"],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "project": ["./tsconfig.json"],

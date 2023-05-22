@@ -1,24 +1,10 @@
-import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
-import { Button } from '@/components/ui/button'
 import MobileNavigation from '@/modules/navigation/mobile-nav'
 import Link from 'next/link'
+import { Container } from './Container'
+import { Logo } from './Logo'
+import { Button } from './ui/button'
 
-export const siteConfig = {
-  name: 'PickApp',
-  description: 'Tu solución de última milla.',
-  mainNav: [
-    {
-      title: 'Home',
-      href: '/',
-    },
-  ],
-  links: {
-    developer: 'https://amilcarrey.ar',
-  },
-}
-
-export function SiteHeader() {
+export function Header() {
   return (
     <header className="py-4 bg-secondary">
       <Container>
@@ -32,7 +18,7 @@ export function SiteHeader() {
             <div className="hidden md:block">
               <Button variant="link">Login</Button>
             </div>
-            <Button className="hidden md:block">
+            <Button>
               <span>¡Comenzá hoy!</span>
             </Button>
             <div className="-mr-1 md:hidden">

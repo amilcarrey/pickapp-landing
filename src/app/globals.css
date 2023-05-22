@@ -1,13 +1,81 @@
-/**
- * Tailwind CSS imports
- * View the full documentation at https://tailwindcss.com
- */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
-  svg {
-    @apply h-5 w-5 stroke-slate-600 transition group-hover:scale-105 group-hover:stroke-slate-900 dark:stroke-slate-400 dark:group-hover:stroke-slate-200;
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 24, 86%, 47%;
+
+    --muted: 0, 0%, 12%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 24, 86%, 47%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 24, 86%, 47%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+
+    --primary: 24, 86%, 47%;
+    --primary-foreground: 72, 19%, 95%;
+
+    --secondary: 0, 0%, 12%;
+    --secondary-foreground: 24, 86%, 47%;
+
+    --accent: 0, 0%, 12%;
+    --accent-foreground: 24, 86%, 47%;
+
+    --destructive: 0 100% 50%;
+    --destructive-foreground: 72, 19%, 95%;
+
+    --ring: 215 20.2% 65.1%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215.4 16.3% 56.9%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 215 20.2% 65.1%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --primary: 72, 19%, 95%;
+    --primary-foreground: 222.2 47.4% 1.2%;
+
+    --secondary: 24, 86%, 47%;
+    --secondary-foreground: 72, 19%, 95%;
+
+    --accent: 216 34% 17%;
+    --accent-foreground: 72, 19%, 95%;
+
+    --destructive: 0 63% 31%;
+    --destructive-foreground: 72, 19%, 95%;
+
+    --ring: 216 34% 17%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
   }
 }
