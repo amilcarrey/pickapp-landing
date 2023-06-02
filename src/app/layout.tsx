@@ -1,11 +1,12 @@
 import { Footer } from '@/components/Footer'
 import { cn } from '@/lib/utils'
 import { SiteHeader } from '@/modules/navigation/site-header'
-import { Inter } from 'next/font/google'
+import { Inter, Lexend } from 'next/font/google'
 import './globals.css'
 import Providers from './providers'
 
 const font = Inter({ subsets: ['latin'], variable: '--font-sans' })
+const fontDisplay = Lexend({ subsets: ['latin'], variable: '--font-display' })
 
 export const metadata = {
   title: 'Create Next App',
@@ -19,7 +20,14 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={cn('font-sans antialiased', font.variable)}>
+    <html
+      lang="en"
+      className={cn(
+        'font-sans antialiased',
+        font.variable,
+        fontDisplay.variable
+      )}
+    >
       <body className="min-h-screen dark:bg-slate-900 dark:text-slate-100">
         <Providers>
           <SiteHeader />

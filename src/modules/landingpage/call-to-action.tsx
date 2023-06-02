@@ -1,6 +1,6 @@
 import { Container } from '@/components/Container'
 
-export function CallToAction() {
+function CallToAction() {
   return (
     <section
       id="get-started-today"
@@ -23,3 +23,4 @@ export function CallToAction() {
     </section>
   )
 }
+export default CallToAction

@@ -1,14 +1,17 @@
-import { CallToAction } from '@/components/CallToAction'
-import Contact from '@/components/Contact'
-import { Hero } from '@/components/Hero'
+import {
+  CallToAction,
+  ContactSection,
+  Hero,
+  PrimaryFeatures,
+} from '@/modules/landingpage'
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      {/* <PrimaryFeatures /> */}
+      <PrimaryFeatures />
       <CallToAction />
-      <Contact />
+      <ContactSection />
     </main>
   )
 }

@@ -1,8 +1,9 @@
+'use client'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
-import { Button } from '@/components/ui/button'
 import MobileNavigation from '@/modules/navigation/mobile-nav'
 import Link from 'next/link'
+import ButtonScroller from './button-scroller'
 
 export const siteConfig = {
   name: 'PickApp',
@@ -29,12 +30,10 @@ export function SiteHeader() {
             </Link>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
-            <div className="hidden md:block">
+            {/* <div className="hidden md:block">
               <Button variant="link">Login</Button>
-            </div>
-            <Button className="hidden md:block">
-              <span>¡Comenzá hoy!</span>
-            </Button>
+            </div> */}
+            <ButtonScroller text="¡Comenzá hoy!" scrollTo="contact" />
             <div className="-mr-1 md:hidden">
               <MobileNavigation />
             </div>

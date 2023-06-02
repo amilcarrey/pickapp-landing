@@ -1,9 +1,9 @@
 import Image from 'next/image'
 
 import { Container } from '@/components/Container'
-import { Button } from '@/ui/button'
+import ButtonScroller from '../navigation/button-scroller'
 
-export function Hero() {
+function Hero() {
   return (
     <section
       id="hero"
@@ -24,7 +24,7 @@ export function Hero() {
         className="absolute left-0 top-0 h-full w-full bg-light/70"
       />
       <Container className="flex h-[80%] flex-col items-center justify-center pb-16 pt-20 text-center lg:pt-32">
-        <h1 className="z-30 mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
+        <h1 className="z-30 mx-auto max-w-4xl font-display text-5xl font-bold tracking-tight text-slate-900 sm:text-7xl">
           Entregas en la puerta de tu casa,{' '}
           <span className="relative whitespace-nowrap text-blue-600">
             <svg
@@ -42,9 +42,15 @@ export function Hero() {
           La solución de entrega de última milla para tu barrio.
         </p>
         <div className="z-20 mt-10 flex justify-center gap-x-6">
-          <Button variant="secondary">Agenda una demo</Button>
+          <ButtonScroller
+            text="Agenda una demo"
+            variant="secondary"
+            scrollTo="contact"
+          />
         </div>
       </Container>
     </section>
   )
 }
+
+export default Hero
