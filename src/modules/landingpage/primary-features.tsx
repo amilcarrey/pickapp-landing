@@ -44,14 +44,14 @@ function PrimaryFeatures() {
       className="relative overflow-hidden bg-secondary py-24"
     >
       <Container className="relative">
-        <div className="max-w-2xl md:mx-auto text-center xl:max-w-none mb-12">
+        <div className="mb-12 max-w-2xl text-center md:mx-auto xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-light sm:text-4xl">
             La <span className="text-primary">solución ideal</span> para tus
             entregas
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-2">
           {features.map((feature, featureIndex) => (
             <Card key={featureIndex}>
               <CardHeader>

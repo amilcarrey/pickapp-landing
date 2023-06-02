@@ -8,7 +8,7 @@ function MobileNavIcon({ open }: { open: boolean }) {
   return (
     <svg
       aria-hidden="true"
-      className="stroke-slate-700 h-3.5 w-3.5 overflow-visible"
+      className="h-3.5 w-3.5 overflow-visible stroke-slate-700"
       fill="none"
       strokeWidth={2}
       strokeLinecap="round"

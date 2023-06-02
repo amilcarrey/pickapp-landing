@@ -1,4 +1,4 @@
-export function Logo(props) {
+export function Logo({ ...props }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -6,6 +6,7 @@ export function Logo(props) {
       height="69"
       viewBox="0 0 157 69"
       fill="none"
+      {...props}
     >
       <g clip-path="url(#clip0_79_26)">
         <path

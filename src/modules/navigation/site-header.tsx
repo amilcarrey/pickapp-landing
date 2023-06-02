@@ -21,7 +21,7 @@ export const siteConfig = {
 
 export function SiteHeader() {
   return (
-    <header className="py-4 bg-secondary">
+    <header className="bg-secondary py-4">
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className="flex items-center md:gap-x-12">

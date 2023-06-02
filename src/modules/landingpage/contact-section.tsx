@@ -7,7 +7,7 @@ const ContactSection = () => {
 
     <section id="contact" className="h-96 w-screen bg-light/10 py-32">
       <Container className="flex flex-col items-center justify-center gap-8">
-        <h1 className="font-display text-3xl tracking-tight text-dark sm:text-4xl">
+        <h1 className="text-dark font-display text-3xl tracking-tight sm:text-4xl">
           Contactanos
         </h1>
         <p className="z-20 mx-auto max-w-2xl text-lg tracking-tight text-slate-700">
