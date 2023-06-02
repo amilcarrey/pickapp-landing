@@ -1,7 +1,6 @@
 'use client'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
-import MobileNavigation from '@/modules/navigation/mobile-nav'
 import Link from 'next/link'
 import ButtonScroller from './button-scroller'
 
@@ -23,10 +22,10 @@ export function SiteHeader() {
   return (
     <header className="bg-secondary py-4">
       <Container>
-        <nav className="relative z-50 flex justify-between">
+        <nav className="relative z-50 flex justify-center md:justify-between">
           <div className="flex items-center md:gap-x-12">
             <Link href="#" aria-label="Home">
-              <Logo className="h-10 w-auto" />
+              <Logo className="h-16 w-auto" />
             </Link>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
@@ -34,9 +33,9 @@ export function SiteHeader() {
               <Button variant="link">Login</Button>
             </div> */}
             <ButtonScroller text="¡Comenzá hoy!" scrollTo="contact" />
-            <div className="-mr-1 md:hidden">
+            {/* <div className="-mr-1 md:hidden">
               <MobileNavigation />
-            </div>
+            </div> */}
           </div>
         </nav>
       </Container>
