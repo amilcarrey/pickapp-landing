@@ -28,7 +28,7 @@ export default function RootLayout({
         fontDisplay.variable
       )}
     >
-      <body className="min-h-screen dark:bg-slate-900 dark:text-slate-100">
+      <body className="min-h-screen w-100% dark:bg-slate-900 dark:text-slate-100">
         <Providers>
           <SiteHeader />
           {children}

@@ -7,7 +7,7 @@ import {
 
 export default function Home() {
   return (
-    <main>
+    <main className="w-full">
       <Hero />
       <PrimaryFeatures />
       <CallToAction />

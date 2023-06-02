@@ -5,7 +5,7 @@ const ContactSection = () => {
   return (
     //a section that use the full witdh, and have two elements inside. Each of them will occupied the 50% of the full viewport size for large screens. The first one will have a black background and the seccond one green
 
-    <section id="contact" className="h-96 w-screen bg-light/10 py-20">
+    <section id="contact" className="h-96 bg-light/10 py-20">
       <Container className="flex flex-col items-center justify-center gap-8">
         <h1 className="text-dark font-display text-3xl tracking-tight sm:text-4xl">
           Contactanos
