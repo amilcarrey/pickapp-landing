@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 
@@ -8,10 +6,10 @@ export function Footer() {
     <footer className="bg-secondary">
       <Container>
         <div className="flex justify-center py-16">
-          <Logo className="mx-auto h-10 w-auto" />
+          <Logo className="mx-auto h-16 w-auto" />
         </div>
-        <div className="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
-          <div className="flex gap-x-6">
+        <div className="flex flex-col items-center justify-center border-t border-slate-400/10 py-10">
+          {/* <div className="flex gap-x-6">
             <Link
               href="https://twitter.com"
               className="group"
@@ -78,7 +76,7 @@ export function Footer() {
                 <path d="M9 10a0.5 .5 0 0 0 1 0v-1a0.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a0.5 .5 0 0 0 0 -1h-1a0.5 .5 0 0 0 0 1" />
               </svg>
             </Link>
-          </div>
+          </div> */}
           <p className="mt-6 text-sm text-light sm:mt-0">
             Copyright &copy; {new Date().getFullYear()} PickApp. All rights
             reserved.
