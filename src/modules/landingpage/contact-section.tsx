@@ -39,7 +39,7 @@ const ContactSection = () => {
           Dejanos tu correo y te contactamos a la brevedad
         </p>
 
-        <form className="flex items-center justify-between">
+        <div className="flex items-center justify-between">
           <input
             type="text"
             placeholder="Correo"
@@ -48,7 +48,7 @@ const ContactSection = () => {
             className="m-2 rounded-md border-2 border-black p-2"
           />
           <Button onClick={(e) => handleSend(e)}>Enviar</Button>
-        </form>
+        </div>
         {showNotValid && (
           <p className="text-red-500">
             Por favor, ingresa una dirección de correo valida.
