@@ -25,6 +25,7 @@ const ContactSection = () => {
     })
 
     setShowSend(true)
+    setEmail('')
   }
   return (
     //a section that use the full witdh, and have two elements inside. Each of them will occupied the 50% of the full viewport size for large screens. The first one will have a black background and the seccond one green
