@@ -10,7 +10,11 @@ const ContactSection = () => {
 
   const handleSend = async () => {
     // check if is a valid email address wit regex and if not show a message
-    if (!email.match(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/)) {
+    if (
+      !email.match(
+        /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+      )
+    ) {
       setShowNotValid(true)
       return
     }
