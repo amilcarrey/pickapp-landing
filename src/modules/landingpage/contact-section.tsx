@@ -8,8 +8,7 @@ const ContactSection = () => {
   const [showNotValid, setShowNotValid] = useState(false)
   const [showSend, setShowSend] = useState(false)
 
-  const handleSend = async (e) => {
-    e.preventDefault()
+  const handleSend = async () => {
     // check if is a valid email address wit regex and if not show a message
     if (!email.match(/^[a-zA-Z0-9]+@(?:[a-zA-Z0-9]+\.)+[A-Za-z]+$/)) {
       setShowNotValid(true)
@@ -47,7 +46,7 @@ const ContactSection = () => {
             onChange={(e) => setEmail(e.target.value)}
             className="m-2 rounded-md border-2 border-black p-2"
           />
-          <Button onClick={(e) => handleSend(e)}>Enviar</Button>
+          <Button onClick={() => handleSend()}>Enviar</Button>
         </div>
         {showNotValid && (
           <p className="text-red-500">
