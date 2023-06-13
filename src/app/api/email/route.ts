@@ -1,3 +1,4 @@
+import { log } from 'console'
 import type { NextRequest } from 'next/server'
 import { NextResponse } from 'next/server'
 import nodemailer from 'nodemailer'
@@ -37,12 +38,17 @@ export async function POST(request: NextRequest) {
       text: `Hay un nuevo cliente interesado en saber mas sobre Pick App! \n\n Email: ${email}`,
    }
 
-   transporter.sendMail(emailObject, (err) => {
-      if (err) {
-         return new Response('Error sending email', { status: 500 })
-      } else {
-         return new Response('Successfully sent email', { status: 250 })
-      }
+   // send email asynchronously
+   log('Sending email...')
+   log(process.env.GMAIL_ACCESS_TOKEN)
+   const result: Response = await new Promise((resolve, reject) => {
+      transporter.sendMail(emailObject, (err) => {
+         if (err) {
+            reject(new Response('Error sending email', { status: 500, statusText: err.message }))
+         } else {
+            resolve(new Response('Successfully sent email', { status: 250 }))
+         }
+      })
    })
 
    transporter.verify(function (error, success) {
@@ -53,5 +59,5 @@ export async function POST(request: NextRequest) {
       }
    })
 
-   return NextResponse.json(request)
+   return result
 }
